@@ -73,8 +73,10 @@ type CreateUserRequest = {
         isPending,
         isError,
         isSuccess,
-      } = useMutation<void, Error, CreateUserRequest>({
+      } = useMutation<unknown, Error, CreateUserRequest>({
        mutationFn: createMyUserRequest,});
+
+      //  useMutation(createMyUserRequest);
 
       return {
         createUser,
@@ -123,6 +125,9 @@ export const useUpdateMyUser = () => {
   } =  useMutation<unknown, Error, UpdateMyUserRequest>({
     mutationFn: updateMyUserRequest,
   });
+
+  // useMutation(updateMyUserRequest);
+
 
   if (isSuccess) {
     toast.success("User profile updated!");
